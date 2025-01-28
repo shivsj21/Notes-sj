@@ -36,7 +36,9 @@ This SOP provides step-by-step instructions for checking site availability, veri
    ```bash
    cd /etc/apache2/sites-available/
    ```
-2. **Create or Edit the Virtual Host Configuration File:** (Always back up configuration files before making changes.)
+2. **Create or Edit the Virtual Host Configuration File:**
+ - Always back up configuration files before making changes.
+
    ```bash
    sudo vim /etc/apache2/sites-available/yourdomain.com.conf
    ```
@@ -125,19 +127,19 @@ This SOP provides step-by-step instructions for checking site availability, veri
 
 ### 3.4 Deploy the Application
 
-1. **Upload Application Files:** Copy the application files to the appropriate directory:
+1. **Upload Application Files:**
+   - Copy the application files to the appropriate directory Or Use WINSCP:
    ```bash
    sudo rsync -avz /local/path/to/application/ /var/www/html/yourdomain.com/
    ```
 
-Or Use WINSCP
-
-2. **Set Correct Permissions:** Ensure files and directories have the appropriate ownership and permissions:
+2. **Set Correct Permissions:**
+   - Ensure files and directories have the appropriate ownership and permissions:
    ```bash
    sudo chown -R www-data:www-data /var/www/html/yourdomain.com/
    sudo chmod -R 755 /var/www/html/yourdomain.com/
    ```
-3. **Restart Apache:**
+4. **Restart Apache:**
    ```bash
    sudo systemctl restart apache2
    ```
