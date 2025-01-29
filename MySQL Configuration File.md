@@ -14,21 +14,30 @@ user=root
 password=my_password
 host=localhost
 ```
+
 2. [mysqld] section
 This section configures the MySQL server settings, including data directories, networking, and server options.
+```ini
 [mysqld]
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 port=3306
 bind-address=0.0.0.0
 max_connections=100
+```
+
 3. [mysqld_safe] section
 The mysqld_safe section configures options for safe startup of the MySQL server.
+```ini
 [mysqld_safe]
 log-error=/var/log/mysql/error.log
 pid-file=/var/run/mysqld/mysqld.pid
+```
+
 4. [server] section
 The [server] section is used for server performance and optimization settings.
+```ini
 [server]
 key_buffer_size=256M
 query_cache_size=64M
+```
