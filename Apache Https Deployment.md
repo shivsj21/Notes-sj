@@ -172,28 +172,14 @@ This SOP provides step-by-step instructions for checking site availability, veri
    sudo certbot renew --dry-run
    ```
    - Ensure there are no errors during the dry run.
-----------------------------------------------------------------------------------------------------------
-**Disable the Site:**
-   ```bash
-   sudo a2dissite yourdomain.com.conf
-   ```
-**Check the Apache Logs for Errors:**
-   ```bash
-   sudo tail -f /var/log/apache2/error.log
-   ```
 ------------------------------------------------------------------------------------------------------
-# Standard Operating Procedure (SOP) for Configuring Apache on Ubuntu Test Server
-
-## **1. Overview**
-This SOP details the process of setting up and managing Apache configuration files on an Ubuntu test server, including enabling and disabling site configurations.
-
-## **2. Directory Structure**
+## ** Directory Structure**
 Apache configuration files are stored in the following locations:
 
 - **`/etc/apache2/sites-available/`**: Contains all available site configuration files.
 - **`/etc/apache2/sites-enabled/`**: Contains symbolic links to enabled site configuration files.
 
-## **3. Creating a Symbolic Link for a Site Configuration**
+## ** Creating a Symbolic Link for a Site Configuration**
 To enable a site by creating a symbolic link from `sites-available` to `sites-enabled`, follow these steps:
 
 ### **Step 1: Navigate to the Apache Configuration Directory**
@@ -223,10 +209,6 @@ anshu_sjpanel.conf -> /etc/apache2/sites-available/anshu_sjpanel.conf
 ```bash
 systemctl restart apache2
 ```
-OR
-```bash
-service apache2 restart
-```
 
 ## **4. Alternative Method: Using `a2ensite` (Recommended)**
 Instead of manually creating a symbolic link, use Apache’s built-in commands:
@@ -254,6 +236,3 @@ If errors are found, edit the configuration file and fix them before restarting 
 ```bash
 sudo tail -f /var/log/apache2/error.log
 ```
-
-## **6. Conclusion**
-This SOP provides a structured approach to managing Apache site configurations on Ubuntu. Using `a2ensite` and `a2dissite` is the preferred method for enabling and disabling sites efficiently.
