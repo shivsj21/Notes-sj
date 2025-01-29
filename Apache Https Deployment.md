@@ -23,10 +23,6 @@ This SOP provides step-by-step instructions for checking site availability, veri
    sudo systemctl enable apache2
    sudo systemctl status apache2
    ```
-2. **Check the Apache Logs for Errors:**
-   ```bash
-   sudo tail -f /var/log/apache2/error.log
-   ```
 
 ### 3.2 Configure Apache for the Site (HTTP and HTTPS)
 
@@ -60,12 +56,10 @@ This SOP provides step-by-step instructions for checking site availability, veri
        CustomLog ${APACHE_LOG_DIR}/yourdomain_access.log combined
    </VirtualHost>
    ```
+   
 3. **Enable the Site:**
    ```bash
    sudo a2ensite yourdomain.com.conf
-   ```
-4. **Reload Apache Service:**
-   ```bash
    sudo systemctl reload apache2
    ```
 
@@ -102,9 +96,6 @@ This SOP provides step-by-step instructions for checking site availability, veri
 2. **Enable the HTTPS Site:**
    ```bash
    sudo a2ensite yourdomain.com-le-ssl.conf
-   ```
-3. **Reload Apache Service:**
-   ```bash
    sudo systemctl reload apache2
    ```
 
@@ -150,12 +141,6 @@ This SOP provides step-by-step instructions for checking site availability, veri
 
    - HTTP: `http://yourdomain.com`
    - HTTPS: `https://yourdomain.com`
-
-2. **Inspect Logs:** Monitor the logs to ensure the site is running smoothly:
-
-   ```bash
-   sudo tail -f /var/log/apache2/access.log /var/log/apache2/error.log
-   ```
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 1. Install Certbot and the Apache Plugin
 1. **Update the package list:**
@@ -187,3 +172,88 @@ This SOP provides step-by-step instructions for checking site availability, veri
    sudo certbot renew --dry-run
    ```
    - Ensure there are no errors during the dry run.
+----------------------------------------------------------------------------------------------------------
+**Disable the Site:**
+   ```bash
+   sudo a2dissite yourdomain.com.conf
+   ```
+**Check the Apache Logs for Errors:**
+   ```bash
+   sudo tail -f /var/log/apache2/error.log
+   ```
+------------------------------------------------------------------------------------------------------
+# Standard Operating Procedure (SOP) for Configuring Apache on Ubuntu Test Server
+
+## **1. Overview**
+This SOP details the process of setting up and managing Apache configuration files on an Ubuntu test server, including enabling and disabling site configurations.
+
+## **2. Directory Structure**
+Apache configuration files are stored in the following locations:
+
+- **`/etc/apache2/sites-available/`**: Contains all available site configuration files.
+- **`/etc/apache2/sites-enabled/`**: Contains symbolic links to enabled site configuration files.
+
+## **3. Creating a Symbolic Link for a Site Configuration**
+To enable a site by creating a symbolic link from `sites-available` to `sites-enabled`, follow these steps:
+
+### **Step 1: Navigate to the Apache Configuration Directory**
+```bash
+cd /etc/apache2/sites-enabled/
+```
+
+### **Step 2: Create a Symbolic Link**
+```bash
+ln -s /etc/apache2/sites-available/<your-config-file>.conf <your-config-file>.conf
+```
+Example:
+```bash
+ln -s /etc/apache2/sites-available/anshu_sjpanel.conf anshu_sjpanel.conf
+```
+
+### **Step 3: Verify the Symbolic Link**
+```bash
+ls -l /etc/apache2/sites-enabled/
+```
+Expected output:
+```bash
+anshu_sjpanel.conf -> /etc/apache2/sites-available/anshu_sjpanel.conf
+```
+
+### **Step 4: Restart Apache to Apply Changes**
+```bash
+systemctl restart apache2
+```
+OR
+```bash
+service apache2 restart
+```
+
+## **4. Alternative Method: Using `a2ensite` (Recommended)**
+Instead of manually creating a symbolic link, use Apache’s built-in commands:
+
+### **Enable a Site**
+```bash
+a2ensite yourdomain.com.conf
+systemctl reload apache2
+```
+
+### **Disable a Site**
+```bash
+a2dissite yourdomain.com.conf
+systemctl reload apache2
+```
+
+## **5. Troubleshooting**
+If Apache fails to restart after enabling a site, check for syntax errors:
+```bash
+apachectl configtest
+```
+If errors are found, edit the configuration file and fix them before restarting Apache.
+
+### **Check the Apache Logs for Errors**
+```bash
+sudo tail -f /var/log/apache2/error.log
+```
+
+## **6. Conclusion**
+This SOP provides a structured approach to managing Apache site configurations on Ubuntu. Using `a2ensite` and `a2dissite` is the preferred method for enabling and disabling sites efficiently.
