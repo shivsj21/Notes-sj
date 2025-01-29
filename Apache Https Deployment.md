@@ -173,13 +173,13 @@ This SOP provides step-by-step instructions for checking site availability, veri
    ```
    - Ensure there are no errors during the dry run.
 ------------------------------------------------------------------------------------------------------
-## ** Directory Structure**
+##  Directory Structure
 Apache configuration files are stored in the following locations:
 
 - **`/etc/apache2/sites-available/`**: Contains all available site configuration files.
 - **`/etc/apache2/sites-enabled/`**: Contains symbolic links to enabled site configuration files.
 
-## ** Creating a Symbolic Link for a Site Configuration**
+##  Creating a Symbolic Link for a Site Configuration
 To enable a site by creating a symbolic link from `sites-available` to `sites-enabled`, follow these steps:
 
 ### **Step 1: Navigate to the Apache Configuration Directory**
