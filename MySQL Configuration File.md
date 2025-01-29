@@ -41,3 +41,25 @@ The [server] section is used for server performance and optimization settings.
 key_buffer_size=256M
 query_cache_size=64M
 ```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# MySQL Configuration File Explanation
+
+## [mysqld] Section
+
+- **user = mysql**: MySQL runs under the `mysql` system user.
+- **bind-address = 127.0.0.1**: MySQL listens for connections only from the local machine (localhost).
+- **mysqlx-bind-address = 127.0.0.1**: The X Plugin for MySQL also listens only on localhost.
+
+## Performance Settings
+
+- **key_buffer_size = 256M**: 256MB of memory is allocated for caching MyISAM index data.
+- **max_connections = 21510**: The server allows up to 21,510 concurrent client connections.
+- **myisam-recover-options = BACKUP**: If MyISAM tables need recovery, create a backup during the recovery process.
+
+## Logging
+
+- **log_error = /var/log/mysql/error.log**: MySQL logs errors in the specified file.
+- **slow_query_log = 1**: Enables the logging of slow queries.
+- **slow_query_log_file = /var/log/mysql/mysql-slow.log**: Slow queries are logged in this file.
+- **max_binlog_size = 100M**: The binary log file is rotated when it reaches 100MB in size.
+
