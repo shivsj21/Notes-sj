@@ -13,6 +13,7 @@ This section configures the client programs, such as `mysql` and `mysqldump`.
 user=root
 password=my_password
 host=localhost
+```
 2. [mysqld] section
 This section configures the MySQL server settings, including data directories, networking, and server options.
 [mysqld]
