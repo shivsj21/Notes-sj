@@ -101,18 +101,3 @@ SHOW PROCESSLIST;
 SELECT DATABASE();
 ```
 - Returns the name of the currently selected database.
-
-## **Other Commands**
-
-### **Exit MySQL Shell**  
-```sql
-exit;
-```
-- Closes the MySQL command-line session.
-
-### **View Command History**  
-```sql
-history;
-```
-- Shows previously executed MySQL commands.
-
