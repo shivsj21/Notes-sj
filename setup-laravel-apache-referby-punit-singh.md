@@ -1,3 +1,40 @@
+1st step
+   Hosting server/webserver => apache/nginx
+   Database mssql/postgress/ mysql /mongo
+
+2nd step
+   Code git pull
+
+3rd step
+   server useage
+   code base
+   database connect => which fie include => connection string -> database dump or existing database
+
+4th
+   Application step up
+
+   directory and codebase
+
+   existing database or new database 
+   assign new users
+
+   give permission
+
+   webserver and dbserver
+
+   make a config file with ssl without ssl  domain name , web directory, ssl certificate location, private key
+
+   webserver ready
+   db server ready
+   apche configuration ready
+
+
+   DNS entry  done
+
+-------------------------------------------------------------------------------------------------
+
+
+
 # Setting Up Laravel with Apache, MySQL, MongoDB, Redis, and SSL
 
 ## Step 1: Create and Set Up the Project Directory
