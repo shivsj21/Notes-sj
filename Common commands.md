@@ -72,3 +72,39 @@ These are Laravel-specific commands.
   - Runs scheduled tasks like email notifications, database cleanups, etc.  
 
 ---
+Here's an explanation of the commands used:
+
+### Navigation & Listing  
+- `cd <directory>`: Change directory to the specified path.  
+- `ll`: List files and directories in the current directory with detailed information (alias for `ls -l`).
+
+### Permissions & Ownership  
+- `chmod -R 777 <path>`: Recursively change permissions to read, write, and execute for all users. **(Not recommended for security reasons)**.  
+- `chown <user>:<group> <file/dir>`: Change the owner and group of a file or directory.  
+- `sudo usermod -a -G <group> <user>`: Add a user to a group.
+
+### Apache Configuration  
+- `vi /etc/apache2/sites-enabled/<file>`: Edit Apache virtual host configuration files.  
+- `sudo apachectl configtest`: Check Apache configuration for syntax errors.  
+- `systemctl restart apache2.service`: Restart the Apache service.
+
+### Laravel Commands  
+- `php artisan schedule:run`: Run scheduled tasks defined in Laravel's `App\Console\Kernel.php`.  
+- `php artisan <command>`: Run a Laravel-specific Artisan command, e.g., `RepDataAPI:sync_projects`.
+
+### Log Management  
+- `tail -100 /var/log/syslog`: View the last 100 lines of the system log.  
+- `tail -f /storage/logs/laravel.log`: Continuously view the end of a Laravel log file.  
+- `rm <file>`: Remove (delete) a file.
+
+### Crontab (Scheduled Tasks)  
+- `crontab -e`: Edit the cron jobs for the current user.  
+- `crontab -L`: (Typo, should be `crontab -l`) List cron jobs.  
+- `crontab -i`: Confirm before deleting a cron job.
+
+### Miscellaneous  
+- `history`: Show a list of recently executed commands.  
+- `clear`: Clear the terminal screen.  
+- `groups <user>`: List the groups a user is a member of.  
+- `id <user>`: Display user and group IDs for a user.  
+- `grep <pattern> /etc/group`: Search for a pattern (e.g., `www-data`) in the group file.
