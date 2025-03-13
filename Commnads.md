@@ -1,9 +1,3 @@
-# Check Server Configuration Values
-
-This guide provides commands to check the current configuration values for Max Connections in MySQL, Memory Limit in PHP, and Max Execution Time in PHP.
-
-## Getting Current Values
-
 ### 1. Max Connections (MySQL)
 To check the current value of maximum connections allowed by MySQL, run:
 ```sql
