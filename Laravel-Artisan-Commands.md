@@ -1,6 +1,8 @@
 # Laravel Artisan Commands
 
 ### **General Commands**
+
+- `php artisan --version` - Check your Laravel version. 
 - `php artisan list` – Lists all available Artisan commands.  
 - `php artisan help [command]` – Shows help for a specific command.  
 
