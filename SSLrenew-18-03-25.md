@@ -20,17 +20,17 @@ certbot -d samplejunction.com -d www.samplejunction.com
 ```
 Runs Certbot to generate or renew SSL certificates for the specified domains. You must choose an option in the prompt (like 1 or 2), but here it's canceled with `c`.
 
-### 4. Edit Private Key File (Not Recommended for Direct Editing)
+### 4. Edit Private Key File 
 ```bash
 vi /etc/letsencrypt/live/samplejunction.com/privkey.pem
 ```
 Opens the private key file for editing. The private key is copied from here.
 
-### 5. Edit Certificate File (Not Recommended for Direct Editing)
+### 5. Edit Certificate File 
 ```bash
 vi /etc/letsencrypt/live/samplejunction.com/fullchain.pem
 ```
-Opens the certificate file where the copied private key is pasted (though this is not the correct process; private keys shouldn't be placed in the fullchain file).
+Opens the certificate file where the copied private key is pasted. (ensure that no extra space)
 
 ### 6. Stop Apache
 ```bash
