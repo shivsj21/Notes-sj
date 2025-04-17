@@ -106,7 +106,7 @@ sudo a2ensite shivm_apace.conf
 sudo systemctl reload apache2
 ```
 
-## Step 6: Configure Apache for HTTPS
+## Step 6: Configure Apache for HTTPS (1st perform step 8 -le-ssl.conf file automatically created and skip step 6 and 7)
 
 1. Create and edit the SSL configuration file:
    ```bash
